@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: virtual-service
+
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  port: 8092
