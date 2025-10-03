@@ -1,1 +1,1 @@
-rootProject.name = "virtual-service"
+rootProject.name = "transaction-service"

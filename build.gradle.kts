@@ -6,7 +6,7 @@ plugins {
 
 group = "com.dulfinne.randomgame"
 version = "0.0.1-SNAPSHOT"
-description = "virtual-service"
+description = "transaction-service"
 
 java {
   toolchain {
