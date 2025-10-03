@@ -39,8 +39,7 @@ public class TransactionServiceImpl implements TransactionService {
       Long lastSeenId,
       Integer limit
   ) {
-    List<Transaction> transactions = transactionRepository.findAllTransactionsKeyset(lastSeenId,
-                                                                                     limit);
+    List<Transaction> transactions = transactionRepository.findAllTransactionsKeyset(lastSeenId, limit);
     return transactions.stream()
                        .map(transactionMapper::toResponse)
                        .toList();
