@@ -2,11 +2,14 @@ package com.dulfinne.randomgame.transactionservice.mapper;
 
 import com.dulfinne.randomgame.transactionservice.dto.response.TransactionResponse;
 import com.dulfinne.randomgame.transactionservice.entity.Transaction;
+import com.dulfinne.randomgame.transactionservice.entity.TransactionType;
+import com.dulfinne.randomgame.transactionservice.grpc.TransactionProto;
 import com.dulfinne.randomgame.transactionservice.util.CommonConstants;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import java.math.BigDecimal;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -24,10 +27,18 @@ public class TransactionMapper {
                               .id(entity.getId())
                               .username(entity.getUsername())
                               .amount(entity.getAmount())
-                              .description(entity.getDescription())
                               .date(formattedDate)
                               .type(entity.getType())
                               .build();
+  }
+
+  public Transaction fromGrpc(TransactionProto.Transaction request) {
+    return Transaction.builder()
+                      .username(request.getUsername())
+                      .amount(new BigDecimal(request.getAmount()))
+                      .type(
+                          TransactionType.valueOf(request.getType()))
+                      .build();
   }
 
   private String resolveTimeZone() {

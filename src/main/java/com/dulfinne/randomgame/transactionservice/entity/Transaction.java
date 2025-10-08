@@ -47,9 +47,6 @@ public class Transaction {
   @Column(name = FIELD_AMOUNT)
   BigDecimal amount;
 
-  @Column(name = FIELD_DESCRIPTION)
-  String description;
-
   @Column(name = FIELD_DATE)
   Instant date;
 
@@ -65,7 +62,6 @@ public class Transaction {
   public static final String FIELD_ID = "id";
   public static final String FIELD_USERNAME = "username";
   public static final String FIELD_AMOUNT = "amount";
-  public static final String FIELD_DESCRIPTION = "description";
   public static final String FIELD_DATE = "date";
   public static final String FIELD_TYPE = "type";
 }
