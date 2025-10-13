@@ -7,7 +7,7 @@ spring:
       enabled: true
 
   datasource:
-    url: ${PG_URLS:jdbc:postgresql://localhost:5432/}transaction_db
+    url: ${PG_URL:jdbc:postgresql://localhost:5432/}transaction_db
     username: ${PG_USERNAME}
     password: ${PG_PASSWORD}
     driver-class-name: org.postgresql.Driver
@@ -15,6 +15,32 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+  kafka:
+    bootstrap-servers: localhost:29092
+
+  cloud:
+    function:
+      definition: receiveTransactionMessage
+    stream:
+      function:
+        bindings:
+          receiveTransactionMessage-in-0: input
+        autodetect: false
+      bindings:
+        input:
+          destination: transaction-topic
+          binder: kafka
+          error-handler-definition: myErrorHandler
+          group: transaction-message-group
+      binders:
+        kafka:
+          environment:
+            spring:
+              kafka:
+                bootstrap-servers: localhost:29092
+
+      default-binder: kafka
 
 grpc:
   server:

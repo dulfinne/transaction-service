@@ -4,6 +4,7 @@ import com.dulfinne.randomgame.transactionservice.dto.response.TransactionRespon
 import com.dulfinne.randomgame.transactionservice.entity.Transaction;
 import com.dulfinne.randomgame.transactionservice.entity.TransactionType;
 import com.dulfinne.randomgame.transactionservice.grpc.TransactionProto;
+import com.dulfinne.randomgame.transactionservice.kafka.entity.TransactionMessage;
 import com.dulfinne.randomgame.transactionservice.util.CommonConstants;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
@@ -38,6 +39,14 @@ public class TransactionMapper {
                       .amount(new BigDecimal(request.getAmount()))
                       .type(
                           TransactionType.valueOf(request.getType()))
+                      .build();
+  }
+
+  public Transaction fromTransactionMessage(TransactionMessage message) {
+    return Transaction.builder()
+                      .username(message.username())
+                      .amount(message.amount())
+                      .type(message.type())
                       .build();
   }
 
