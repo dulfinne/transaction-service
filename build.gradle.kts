@@ -22,11 +22,13 @@ java {
 
 repositories {
   mavenCentral()
+  maven { url = uri("https://jitpack.io") }
 }
 
 val grpcVersion = "1.75.0"
 val protocVersion = "3.25.5"
 val grpcClientVersion = "3.1.0.RELEASE"
+val singleFlightVersion = "v1.0.4"
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
@@ -36,6 +38,7 @@ dependencies {
   implementation("net.devh:grpc-server-spring-boot-starter:$grpcClientVersion")
   implementation("org.springframework.cloud:spring-cloud-stream-binder-kafka")
 
+  implementation("com.github.dulfinne:single-flight-starter:$singleFlightVersion:plain")
   annotationProcessor("org.projectlombok:lombok")
 
   runtimeOnly("org.postgresql:postgresql")

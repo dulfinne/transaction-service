@@ -46,5 +46,10 @@ grpc:
   server:
     port: 9090
 
+app:
+  common:
+    single-flight:
+      enabled: true
+
 server:
   port: 8092
