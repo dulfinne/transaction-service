@@ -1,4 +1,4 @@
-package com.dulfinne.randomgame.virtualservice.dto.request;
+package com.dulfinne.randomgame.transactionservice.dto.request;
 
 import jakarta.validation.constraints.Positive;
 

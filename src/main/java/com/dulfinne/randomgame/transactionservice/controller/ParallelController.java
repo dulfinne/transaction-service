@@ -1,7 +1,7 @@
-package com.dulfinne.randomgame.virtualservice.controller;
+package com.dulfinne.randomgame.transactionservice.controller;
 
-import com.dulfinne.randomgame.virtualservice.dto.request.ParallelRequest;
-import com.dulfinne.randomgame.virtualservice.util.ApiPaths;
+import com.dulfinne.randomgame.transactionservice.dto.request.ParallelRequest;
+import com.dulfinne.randomgame.transactionservice.util.ApiPaths;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

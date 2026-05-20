@@ -1,10 +1,10 @@
-package com.dulfinne.randomgame.virtualservice;
+package com.dulfinne.randomgame.transactionservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VirtualServiceApplicationTests {
+class TransactionServiceApplicationTests {
 
   @Test
   void contextLoads() {
